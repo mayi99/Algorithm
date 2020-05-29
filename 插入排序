@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class demo3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+//        1.插入排序
+        //定义一个数组
+        int[] a = {2,3,5,1,23,6,78,34};
+        int[] s = sort(a);
+        for (int b : s) {
+            System.out.print(b + " ");
+        }
+
+    }
+//    实现插入排序
+    public static int[] sort(int[] a){
+        for (int i = 1; i < a.length; i++) {
+            int temp = a[i];
+//            遍历  排序
+            for (int j = i;j > 0 && temp < a[j-1]; j--) {
+//                if(temp < a[j-1]){
+                    a[j] = a[j-1];
+                    a[j-1] = temp;
+//                }
+
+            }
+        }
+        return a;
+    }
+}
