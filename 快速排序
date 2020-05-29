@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class main {
+    private static int ccc;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] array = {6,1,2,7,9,3,4,5,10,8};
+        int left = 0;
+        int right = array.length - 1;
+        int ccc = 0;
+        quickSort(array,left,right);
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + "  ");
+        }
+
+    }
+
+    public static void quickSort(int[] array,int left,int right){
+        if(left > right){
+            return;
+        }
+        int base = array[left];
+        int i = left;
+        int j = right;
+        while ( i != j){
+            //从右边往左边找小于基准数的位置
+            while (array[j] >= base && i < j){
+                j--;
+            }
+            //从左边往右边找大于基准数的位置
+            while (array[i] <= base && i <j){
+                i++;
+            }
+            //将两个数互换位置
+            if(i < j){
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        //将基准数与中间数互换位置
+        array[left] = array[i];
+        array[i] = base;
+        //左边进行排序
+        quickSort(array,0,i - 1);
+        //右边进行排序
+        quickSort(array,j + 1, right);
+
+    }
+}
