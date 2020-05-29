@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class demo3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+//        1.选择排序
+        //定义一个数组
+        int[] a = new int[8];
+        //记录最小值
+        int min = 0;
+        //给数组赋值
+        for (int i = 0; i < a.length; i++) {
+            a[i] = sc.nextInt();
+        }
+        //循环实现选择排序
+        for (int i = 0; i < a.length - 1; i++) {
+            min = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if(a[j] < a[i]){
+//                    将找到的最小值索引赋值给min
+                    min = j;
+                }
+            }
+//            交换位置
+            if(i != min){
+                int temp = a[i];
+                a[i] = a[min];
+                a[min] = temp;
+            }
+
+        }
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+
+    }
+}
