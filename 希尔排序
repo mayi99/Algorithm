@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class ShellSort {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] a = {2,3,5,1,23,6,78,34};
+        int[] b = sort(a);
+        for(int c : b){
+            System.out.print(c + " ");
+        }
+    }
+    public static int[] sort(int[] a){
+        int h = 1;
+        int temp = 0;
+        while (h < a.length / 2){
+            h = (2 * h) + 1;
+        }
+        while (h >= 1){
+            for (int i = h; i < a.length; i++) {
+                for (int j = i; j >= h ; j -= h) {
+                    if(a[j] < a[j-h]){
+                        temp = a[j];
+                        a[j] = a[j-h];
+                        a[j-h] = temp;
+                    }
+                }
+            }
+            h = h / 2;
+
+        }
+
+
+
+
+      return a;
+    }
+ }
